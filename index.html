@@ -64,6 +64,13 @@
         map {
             z-index: 10;
         }
+        #happi {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            display: none;
+        }
 
         @keyframes show {
             0% {
@@ -83,7 +90,8 @@
         </map>
         <img src="redbtn.jpg" alt="redbtn" usemap="#map" id="redbtn">
         <img src="sweat.jpg" id="sweat">
-        <p>P.S: You can press the buttons. If not, palihug kog refresh</p>
+        <img src="cat-jump.gif" alt="" id="happi">
+        <p>P.S: You can press the buttons. If not, palihug kog refresh <br/> <small>Make sure sa chrome nimo gi open</small></p>
 
         <div class="hbd">Happy Birthday Daryl!!</div>
         <div class="congrats"></div>
@@ -103,6 +111,7 @@
         const bdaySong = document.getElementById('bday_song')
         const congratsSong = document.getElementById('congrats_song')
         const happiSong = document.getElementById('happi_song')
+        const happi = document.getElementById("happi")
 
         console.log(bdaybtn)
 
@@ -144,11 +153,13 @@
             if(bd_press && cg_press) {
                 redbtn.src = './redbtn_both.jpg'
                 bottom.src = './ok.jpg'
+                happi.style.display = "block"
                 bottom.style.scale = 1.07
                 happiSong.currentTime = 61
                 happiSong.play()
 
                 setTimeout(() => {
+                    happi.style.display = "none"
                     happiSong.pause()
                     happiSong.currentTime = 61
                 }, 20000)
